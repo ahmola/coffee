@@ -10,7 +10,7 @@ This project contains a collection of microservices with springboot version 3.4.
   - endpoint : 8761
 3. API Gateway Service
   - endpoint : 8080
-4. Coffee Service
+4. Beverage Service
   - endpoint : 8090
 5. Customer Service
   - endpoint : 8091
