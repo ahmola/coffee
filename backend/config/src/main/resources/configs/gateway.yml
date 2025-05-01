@@ -1,0 +1,29 @@
+server:
+  port: 8080
+
+spring:
+  cloud:
+    gateway:
+      discovery: # actually, doesn't really need to this if you want to manually script routes
+        locator:
+          enabled: true
+      routes:
+        - id: beverage-service
+          uri: lb://BEVERAGE-SERVICE
+          predicates:
+            - Path=/api/v1/beverage/**
+
+        - id: customer-service
+          uri: lb://CUSTOMER-SERVICE
+          predicates:
+            - Path=/api/v1/customer/**
+
+        - id: order-service
+          uri: lb://ORDER-SERVICE
+          predicates:
+            - Path=/api/v1/order/**
+
+        - id: payment-service
+          uri: lb://PAYMENT-SERVICE
+          predicates:
+            - Path=/api/v1/payment/**

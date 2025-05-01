@@ -1,0 +1,29 @@
+# this is the recommended way of yaml file for config server
+#spring:
+#  cloud:
+#    config:
+#      server:
+#        git:
+#          uri: https://github.com/spring-cloud-samples/config-repo
+#          username: trolley
+#          password: strongpassword
+#        repos:
+#          team-a:
+#            pattern: team-a-*
+#            cloneOnStart: true
+#            uri: https://git/team-a/config-repo.git
+#            searchPath: dir
+
+server:
+  port: 8888
+spring:
+  application:
+    name: config
+  profiles:
+    active: native # actually it is right to bring yaml from private git repository
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: classpath:/configs
+
